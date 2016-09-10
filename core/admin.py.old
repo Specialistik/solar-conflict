@@ -1,0 +1,40 @@
+#coding: utf-8
+
+from django.contrib import admin
+from core.models import Race, Citizen, CelestialBody, ResourceType, ResouceSource
+
+
+class BaseAdmin(admin.ModelAdmin):
+    fields = ('name_rus', 'description_rus', 'pid')
+    list_display = ('pic', 'description', 'name')
+
+
+class RaceAdmin(admin.ModelAdmin):
+    fields = ('pic', 'description', 'name')
+    list_display = ('pic', 'description', 'name')
+    
+    
+class CitizenAdmin(admin.ModelAdmin):
+    list_display = ('pic', 'description')
+
+    
+class CelestialBodyAdmin(admin.ModelAdmin):
+    fields = ('description', 'name', 'pid')
+    list_display = ('description', 'name', 'pid')
+
+
+class ResourceTypeAdmin(admin.ModelAdmin):
+    fields = ('pic', 'description', 'name', 'pid')
+    list_display = ('pic', 'description', 'name', 'pid')
+    
+
+class ResourceSourceAdmin(admin.ModelAdmin):
+    fields = ('pic', 'description', 'name', 'pid')
+    list_display = ('pic', 'description', 'name', 'pid')
+    
+
+admin.site.register(Race, RaceAdmin)
+admin.site.register(Citizen, CitizenAdmin)
+admin.site.register(CelestialBody, CelestialBodyAdmin)
+admin.site.register(ResourceType, ResourceTypeAdmin)
+admin.site.register(ResouceSource, ResourceSourceAdmin)
